@@ -361,8 +361,6 @@
     let sumArray = summary.split("####");
     var overviewText, hightlightText;
     if (sumArray.length != 3 || sumArray[1].slice(1,8) !== "Summary" || sumArray[2].slice(1, 11) !== "Highlights") {
-      console.log(sumArray[1].slice(0, 7));
-      console.log(sumArray[2].slice(0, 10));
       const newSummaryElement = document.createElement("div");
       newSummaryElement.innerText = "Opps, chatgpt fail to generate summary. Try to click the rerun button.";
       newSummaryElement.className = "summary-content";
@@ -460,34 +458,34 @@
 
   chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     loadExtension();
-    loadConfiguration().then((configuration) => {
+    loadConfiguration().then(async (configuration) => {
       if (request.type === "LOAD") {
-        chrome.storage.sync.get(["APIError"]).then((result) => {
-          if (!result["APIError"] || result["APIError"] === 0) {
-            fetchTranscript(request.videoId, configuration);
-            fetchSummary(request.videoId, configuration);
-            fetchTranslations(request.videoId, configuration);
+        chrome.storage.sync.get(["APIError"]).then(async (result) => {
+          if (result["APIError"] && result["APIError"] === 0) {
+            await fetchTranscript(request.videoId, configuration);
+            await fetchSummary(request.videoId, configuration);
+            await fetchTranslations(request.videoId, configuration);
           }
         });
       } else if (request.type === "NEW" || request.type === "RELOAD") {
         reset();
-        fetchTranscript(request.videoId, configuration);
-        fetchSummary(request.videoId, configuration);
-        fetchTranslations(request.videoId, configuration);
+        await fetchTranscript(request.videoId, configuration);
+        await fetchSummary(request.videoId, configuration);
+        await fetchTranslations(request.videoId, configuration);
       } 
     })
     .catch((error)=> {
       if (error === 1) {
-        alert("Rapid API key is incorrect.");
+        console.log("Rapid API key is incorrect.");
+      } 
+      else if (error === 2) {
+        console.log("ChatGPT API key is incorrect.");
       }
-      if (error === 2) {
-        alert("ChatGPT API key is incorrect.");
+      else if (error === 3) {
+        console.log("Please select a translation language.");
       }
-      if (error === 3) {
-        alert("Please select a translation language.");
-      }
-      if (error === 1) {
-        alert("Please select mode for ChatGPT.");
+      else if (error === 4) {
+        console.log("Please select mode for ChatGPT.");
       }
     });
   });
