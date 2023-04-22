@@ -1,0 +1,155 @@
+#extension-container{
+  background-color: #faf5f5;
+  height: 500px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10%;
+  box-shadow: 10px 5px 5px #ddd;
+  margin-bottom: 50px;
+}
+
+#header-container{
+  height:50px;
+  padding-left: 5%;
+  padding-right: 5%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* border-bottom: 1px solid black; */
+}
+
+.extension-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.extension-title {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.tab {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+  align-items: center;
+  /* padding-top: 3px; */
+  border-bottom: 3px solid black;
+  padding-bottom: 3px;
+}
+
+.tablinks {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px 10px 10px 10px;
+  transition: background-color 0.3s ease;
+  margin-left: 3px;
+}
+
+.tablinks:hover {
+  background-color: #0056b3;
+}
+
+.tablinks.active {
+  background-color: #0056b3;
+}
+
+.tabcontent {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  flex: 1;
+  width: 85%;
+  overflow-y: scroll;
+  /* border: 3px solid black; */
+  background-color: #ffffff;
+  flex-grow: 1; /* Allow the child container to grow to fill the available space */
+  flex-shrink: 1;
+  display: none;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+.summary-title {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.summary-content {
+  color: black;
+  font-size: 15px;
+}
+
+.translation {
+  display: flex;
+  border-bottom: 2px solid tomato;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.translation-title {
+  padding-left: 2px;
+  text-align: left;
+  text-align: center;
+  font-size: 15px;
+}
+
+.translation-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.translation-controls img {
+  margin: auto;
+  display: block;
+  cursor: pointer;
+}
+
+.transcript {
+  display: flex;
+  border-bottom: 2px solid tomato;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.transcript-title {
+  padding-left: 2px;
+  text-align: left;
+  text-align: center;
+  font-size: 15px;
+}
+
+.transcript-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.transcript-controls img {
+  margin: auto;
+  display: block;
+  cursor: pointer;
+}
+
+.timestampbutton {
+  width: 70px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  color:green;
+  font-size: 15px;
+}

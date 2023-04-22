@@ -1,0 +1,37 @@
+<link href="popup.css" rel="stylesheet" type="text/css" />
+<script type="module" src="popup.js"></script>
+
+<div class="container">
+  <div class="title">Configuration</div>
+
+    <form id="myForm">
+      <div class="form-group">
+        <label for="user-input" class="input-label">Rapid API:</label>
+        <input type="text" id="rapid-input" class="input-field">
+      </div>
+
+      <div class="form-group">
+        <label for="user-input" class="input-label">ChatGpt API:</label>
+        <input type="text" id="gpt-input" class="input-field">
+      </div>
+      <div class="form-group">
+        <label for="language-select" class="select-label">Translation Language:</label>
+        <select id="language-select" class="select-field">
+          <option value="" disabled selected>Select an option</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Spanish">Spanish</option>
+          <option value="French">French</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="summary-select" class="select-label">Summary Mode:</label>
+        <select id="summary-select" class="select-field">
+          <option value="" disabled selected>Select an option</option>
+          <option value="Creative">Creative</option>
+          <option value="Balanced">Balanced</option>
+          <option value="Precise">Precise</option>
+        </select>
+      </div>
+    </form>
+  <button type="submit" class="save-button" id="extension-save">Save & Restart</button>
+</div>
