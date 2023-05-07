@@ -28,9 +28,9 @@ const saveConfiguration = async () => {
   if (mode.length !== 0) {
     var temp = 0.9;
     if (mode === "Precise") {
-      temp = 0.6;
-    } else if (mode === "Balanced"){
       temp = 0.3;
+    } else if (mode === "Balanced"){
+      temp = 0.6;
     }
     console.log(temp);
     chrome.storage.sync.set({["Mode"]: temp});
